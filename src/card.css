@@ -1,0 +1,58 @@
+
+.card{
+    background-color: #232323;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    height: fit-content;
+    padding: 9px;
+    border-radius: 7px;
+    font-family: "Montserrat";
+    
+}
+
+.card:hover{
+    background-color: #424040;
+    cursor: pointer;
+}
+
+.card:active{
+    background-color: #1b1b1b;
+
+}
+
+.carddetails{
+    display: flex;
+    flex-direction: column;
+    gap: 24%;
+    flex-grow: 1;
+}
+
+
+.card img{
+    border-radius: 5px;
+    height: 17vh;
+    width: auto;
+}
+
+.cardtitle{
+    font-weight: bolder;
+}
+
+.cardauthor{
+    font-size: 0.8em;
+    font-weight: 500;
+}
+
+.cardauthor span{
+    font-weight: lighter;
+}
+
+.cardisbn{
+    font-size: 0.7em;
+    font-weight: 300;
+}
+.cardprice{
+    font-size: 0.8em;
+    text-align: right;
+}
