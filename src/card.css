@@ -37,6 +37,7 @@
 
 .cardtitle{
     font-weight: bolder;
+    text-wrap:wrap;
 }
 
 .cardauthor{

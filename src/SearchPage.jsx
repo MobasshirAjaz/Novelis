@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Card from "./Cards.jsx";
+import RightSection from "./RightSection.jsx";
 
 function getcards(setCards, value, setsearchstate) {
   const cards = [
@@ -14,10 +15,10 @@ function getcards(setCards, value, setsearchstate) {
     },
     {
       imgurl:
-        "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1597695864i/54493401.jpg",
-      title: "Project Hail Mary",
-      author: "Andy Weir",
-      isbn: "1356376151652",
+        "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1696831662i/129491110.jpg",
+      title: "All quite on the Western front",
+      author: "Erich Maria Remarque",
+      isbn: "1356376151752",
       price: "$3",
     },
   ];
@@ -33,6 +34,7 @@ function getcards(setCards, value, setsearchstate) {
 function Search() {
   const [cards, setCards] = useState([]);
   const [searchstate, setSearchstate] = useState("notsearched");
+  const [active, setActive] = useState("");
 
   return (
     <div className="outer">
@@ -56,6 +58,7 @@ function Search() {
           ) : (
             cards.map((card) => (
               <Card
+                setactive={setActive}
                 key={card.isbn} // Make sure to have a unique 'key' prop
                 imgurl={card.imgurl}
                 title={card.title}
@@ -67,10 +70,7 @@ function Search() {
           )}
         </div>
       </div>
-      <div className="rightsection">
-        <div className="topright"></div>
-        <div className="bottomright"></div>
-      </div>
+      <RightSection activeisbn={active} currentpage={"search"}></RightSection>
     </div>
   );
 }

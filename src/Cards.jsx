@@ -1,8 +1,13 @@
 import "./card.css";
 
-function Card({ imgurl, title, author, isbn, price }) {
+function Card({ setactive, key, imgurl, title, author, isbn, price }) {
   return (
-    <div className="card">
+    <div
+      className="card"
+      onClick={() => {
+        setactive(isbn);
+      }}
+    >
       <img src={imgurl} alt="" />
       <div className="carddetails">
         <div className="topcarddetails">

@@ -1,0 +1,83 @@
+.rightsection{
+    padding: 15px;
+}
+
+.topright{
+    font-family: "Montserrat";
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+}
+
+.toprightcarddetails{
+    height: fit-content;
+    display: flex;
+    gap: 10px;
+}
+
+.toprightcarddetails img{
+    border-radius: 5px;
+    height: 27vh;
+    width: auto;
+}
+
+.sideofimagecarddetails{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+.toprightcardtitle{
+    font-size: 1.2em;
+    font-weight: bolder;
+}
+
+.toprightcardauthor{
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+.toprightcardauthor span{
+    font-weight: lighter;
+}
+
+.toprightcardisbn{
+    font-size: 0.8em;
+    font-weight: 400;
+}
+
+.toprightcardisbn span{
+    font-weight: lighter;
+}
+
+.toprightcardgenre{
+    font-weight: lighter;
+}
+
+.buttons{
+    
+    margin-right: 7vw;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.butt2{
+    all:unset;
+    border-radius: 8px;
+    padding: 5px 15px;
+    font-family: "Montserrat";
+    color: black;
+    background-color: #E9FF90;
+    text-align: center;
+    border: transparent 2px solid;
+}
+
+.butt2:hover{
+    cursor: pointer;
+    border: #171717 2px solid;
+}
+
+.butt2:active{
+    background-color: #a4b463;
+}
