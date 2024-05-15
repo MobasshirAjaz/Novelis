@@ -1,38 +1,58 @@
 import { useState } from "react";
+import Card from "./Cards";
 import "./App.css";
 function getcards(setCards, value, setsearchstate) {
-  const cards = [
+  if (value === null) {
+    setsearchstate("notsearched");
+  } else {
+    const cards = [
+      {
+        imgurl:
+          "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1597695864i/54493401.jpg",
+        title: "Project Hail Mary",
+        author: "Andy Weir",
+        isbn: "1356376151652",
+        price: "$3",
+      },
+      {
+        imgurl:
+          "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1696831662i/129491110.jpg",
+        title: "All quite on the Western front",
+        author: "Erich Maria Remarque",
+        isbn: "1356376151752",
+        price: "$3",
+      },
+    ];
+
+    if (cards.length === 0) {
+      setsearchstate("noresult");
+    } else {
+      setsearchstate("searched");
+    }
+    setCards(cards);
+  }
+}
+
+function getWishlistCards() {
+  const wishlistCards = [
     {
       imgurl:
         "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1597695864i/54493401.jpg",
-      title: "Project Hail Mary",
+      title: "Project",
       author: "Andy Weir",
       isbn: "1356376151652",
       price: "$3",
     },
-    {
-      imgurl:
-        "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1696831662i/129491110.jpg",
-      title: "All quite on the Western front",
-      author: "Erich Maria Remarque",
-      isbn: "1356376151752",
-      price: "$3",
-    },
   ];
 
-  if (cards.length === 0) {
-    setsearchstate("noresult");
-  } else {
-    setsearchstate("searched");
-  }
-  setCards(cards);
+  return wishlistCards;
 }
-
 function Wishlist() {
   const [cards, setCards] = useState([]);
   const [searchstate, setSearchstate] = useState("notsearched");
   const [active, setActive] = useState("");
 
+  const wishlistcards = getWishlistCards();
   return (
     <div className="outer">
       <div className="leftsection">
@@ -49,7 +69,17 @@ function Wishlist() {
         </div>
         <div className="cardsection">
           {searchstate === "notsearched" ? (
-            <p>Not searched</p>
+            wishlistcards.map((card) => (
+              <Card
+                setactive={setActive}
+                key={card.isbn} // Make sure to have a unique 'key' prop
+                imgurl={card.imgurl}
+                title={card.title}
+                author={card.author}
+                isbn={card.isbn}
+                price={card.price}
+              />
+            ))
           ) : searchstate === "noresult" ? (
             <p>No result</p>
           ) : (
