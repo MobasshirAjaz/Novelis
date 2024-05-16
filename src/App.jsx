@@ -45,9 +45,9 @@ function App({ setActive, active }) {
     <>
       <Navbar setActive={setActive} active={active}></Navbar>
       {console.log(active)}
-      {active === "search" && <Search></Search>}
-      {active === "wishlist" && <Wishlist></Wishlist>}
-      {active === "shelf" && <Shelf></Shelf>}
+      <Search acttab={active}></Search>
+      <Wishlist acttab={active}></Wishlist>
+      <Shelf acttab={active}></Shelf>
     </>
   );
 }

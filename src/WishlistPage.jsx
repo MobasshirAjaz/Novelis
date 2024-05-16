@@ -47,14 +47,14 @@ function getWishlistCards() {
 
   return wishlistCards;
 }
-function Wishlist() {
+function Wishlist({ acttab }) {
   const [cards, setCards] = useState([]);
   const [searchstate, setSearchstate] = useState("notsearched");
   const [active, setActive] = useState(""); // to set active card isbn
 
   const wishlistcards = getWishlistCards();
   return (
-    <div className="outer">
+    <div className={acttab === "wishlist" ? "outer" : "notvisible"}>
       <div className="leftsection">
         <div className="searchbox">
           <input type="text" placeholder="Search for title,author,isbn" />

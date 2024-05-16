@@ -31,13 +31,13 @@ function getcards(setCards, value, setsearchstate) {
   setCards(cards);
 }
 
-function Search() {
+function Search({ acttab }) {
   const [cards, setCards] = useState([]);
   const [searchstate, setSearchstate] = useState("notsearched");
   const [active, setActive] = useState("");
   const [searchvalue, setSearchValue] = useState("");
   return (
-    <div className="outer">
+    <div className={acttab === "search" ? "outer" : "notvisible"}>
       <div className="leftsection">
         <div className="searchbox">
           <input
