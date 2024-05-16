@@ -50,7 +50,7 @@ function getWishlistCards() {
 function Wishlist() {
   const [cards, setCards] = useState([]);
   const [searchstate, setSearchstate] = useState("notsearched");
-  const [active, setActive] = useState("");
+  const [active, setActive] = useState(""); // to set active card isbn
 
   const wishlistcards = getWishlistCards();
   return (

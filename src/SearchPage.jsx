@@ -35,19 +35,36 @@ function Search() {
   const [cards, setCards] = useState([]);
   const [searchstate, setSearchstate] = useState("notsearched");
   const [active, setActive] = useState("");
-
+  const [searchvalue, setSearchValue] = useState("");
   return (
     <div className="outer">
       <div className="leftsection">
         <div className="searchbox">
-          <input type="text" placeholder="Search for title,author,isbn" />
+          <input
+            type="text"
+            placeholder="Search for title,author,isbn"
+            value={searchvalue}
+            onChange={(e) => setSearchValue(e.target.value)}
+          />
           <button
             className="searchbutton"
             onClick={() => {
-              getcards(setCards, "entered", setSearchstate);
+              if (searchstate !== "notsearched") {
+                setSearchstate("notsearched");
+                setCards([]);
+                setSearchValue("");
+              } else {
+                getcards(setCards, "entered", setSearchstate);
+              }
             }}
           >
-            <i className="fa-solid fa-magnifying-glass"></i>
+            <i
+              className={
+                searchstate === "notsearched"
+                  ? "fa-solid fa-magnifying-glass"
+                  : "fa-solid fa-x"
+              }
+            ></i>
           </button>
         </div>
         <div className="cardsection">

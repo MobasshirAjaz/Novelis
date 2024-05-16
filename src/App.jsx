@@ -4,46 +4,47 @@ import Search from "./SearchPage";
 import Wishlist from "./WishlistPage";
 import Shelf from "./ShelfPage";
 
-function Container({ setactive, active }) {
+function Container({ setActive, active }) {
   return (
     <div className="container">
       <button
         className={active === "search" ? "actbutt" : "butt"}
-        onClick={() => setactive("search")}
+        onClick={() => setActive("search")}
       >
         Search
       </button>
 
       <button
         className={active === "wishlist" ? "actbutt" : "butt"}
-        onClick={() => setactive("wishlist")}
+        onClick={() => setActive("wishlist")}
       >
         Wishlist
       </button>
 
       <button
         className={active === "shelf" ? "actbutt" : "butt"}
-        onClick={() => setactive("shelf")}
+        onClick={() => setActive("shelf")}
       >
         Shelf
       </button>
     </div>
   );
 }
-function Navbar({ setactive, active }) {
+function Navbar({ setActive, active }) {
   return (
     <div className="navbar">
-      <Container setactive={setactive} active={active}></Container>
+      <p className="logo">Novelis</p>
+      <Container setActive={setActive} active={active}></Container>
+      <p className="avatar">Login</p>
     </div>
   );
 }
 
-function App() {
-  const [active, setActive] = useState("search");
-
+function App({ setActive, active }) {
   return (
     <>
-      <Navbar setactive={setActive} active={active}></Navbar>
+      <Navbar setActive={setActive} active={active}></Navbar>
+      {console.log(active)}
       {active === "search" && <Search></Search>}
       {active === "wishlist" && <Wishlist></Wishlist>}
       {active === "shelf" && <Shelf></Shelf>}
