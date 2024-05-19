@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Card from "./Cards";
 import "./App.css";
+import RightSection from "./RightSection";
+
 function getcards(setCards, value, setsearchstate) {
   if (value === null) {
     setsearchstate("notsearched");
@@ -14,14 +16,6 @@ function getcards(setCards, value, setsearchstate) {
         isbn: "1356376151652",
         price: "$3",
       },
-      {
-        imgurl:
-          "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1696831662i/129491110.jpg",
-        title: "All quite on the Western front",
-        author: "Erich Maria Remarque",
-        isbn: "1356376151752",
-        price: "$3",
-      },
     ];
 
     if (cards.length === 0) {
@@ -33,14 +27,26 @@ function getcards(setCards, value, setsearchstate) {
   }
 }
 
+function getTotalPrice(wishlistCards) {
+  return "$200";
+}
+
 function getWishlistCards() {
   const wishlistCards = [
     {
       imgurl:
         "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1597695864i/54493401.jpg",
-      title: "Project",
+      title: "Project Hail Mary",
       author: "Andy Weir",
       isbn: "1356376151652",
+      price: "$3",
+    },
+    {
+      imgurl:
+        "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1696831662i/129491110.jpg",
+      title: "All quite on the Western front",
+      author: "Erich Maria Remarque",
+      isbn: "1356376151752",
       price: "$3",
     },
   ];
@@ -61,10 +67,22 @@ function Wishlist({ acttab }) {
           <button
             className="searchbutton"
             onClick={() => {
-              getcards(setCards, "entered", setSearchstate);
+              if (searchstate !== "notsearched") {
+                setSearchstate("notsearched");
+                setCards([]);
+                setSearchValue("");
+              } else {
+                getcards(setCards, "entered", setSearchstate);
+              }
             }}
           >
-            <i className="fa-solid fa-magnifying-glass"></i>
+            <i
+              className={
+                searchstate === "notsearched"
+                  ? "fa-solid fa-magnifying-glass"
+                  : "fa-solid fa-x"
+              }
+            ></i>
           </button>
         </div>
         <div className="cardsection">
@@ -96,8 +114,12 @@ function Wishlist({ acttab }) {
             ))
           )}
         </div>
+        <div className="totalprice">
+          <p>Total Price</p>
+          <p>{getTotalPrice(wishlistcards)}</p>
+        </div>
       </div>
-      <div className="rightsection"></div>
+      <RightSection activeisbn={active} currentpage={"search"}></RightSection>
     </div>
   );
 }

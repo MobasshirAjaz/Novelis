@@ -44,7 +44,7 @@ function App({ setActive, active }) {
   return (
     <>
       <Navbar setActive={setActive} active={active}></Navbar>
-      {console.log(active)}
+
       <Search acttab={active}></Search>
       <Wishlist acttab={active}></Wishlist>
       <Shelf acttab={active}></Shelf>

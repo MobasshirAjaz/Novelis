@@ -160,3 +160,13 @@ color: black;
   overflow-y: auto;
   scrollbar-width: none;
 }
+
+.totalprice{
+  font-family: "Montserrat";
+  display: flex;
+  justify-content: space-between;
+  border-top: white dashed 3px;
+  margin-top: auto;
+  margin-right: -10px;
+  margin-left: -10px;
+}
