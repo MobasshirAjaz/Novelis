@@ -35,7 +35,7 @@ function getShelfCards() {
       title: "Project Hail Mary",
       author: "Andy Weir",
       isbn: "1356376151652",
-      price: "$3",
+      price: "Completed",
     },
     {
       imgurl:
@@ -43,7 +43,7 @@ function getShelfCards() {
       title: "All quite on the Western front",
       author: "Erich Maria Remarque",
       isbn: "1356376151752",
-      price: "$3",
+      price: "Reading",
     },
   ];
 
@@ -112,7 +112,7 @@ function Shelf({ acttab }) {
           )}
         </div>
       </div>
-      <RightSection activeisbn={active} currentpage={"search"}></RightSection>
+      <RightSection activeisbn={active} currentpage={"shelf"}></RightSection>
     </div>
   );
 }

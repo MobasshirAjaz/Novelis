@@ -119,7 +119,7 @@ function Wishlist({ acttab }) {
           <p>{getTotalPrice(wishlistcards)}</p>
         </div>
       </div>
-      <RightSection activeisbn={active} currentpage={"search"}></RightSection>
+      <RightSection activeisbn={active} currentpage={"wishlist"}></RightSection>
     </div>
   );
 }
